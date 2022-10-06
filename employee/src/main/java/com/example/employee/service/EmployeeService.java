@@ -14,9 +14,8 @@ public interface EmployeeService {
 	
 	public Employee updateEmployee(Employee details, long id);
 	
-	public boolean deleteEmployee(long id);
-	
 	public List<Employee> fetchEmployeeDetails();
 	
+	public Employee getEmpId(long id);
 
 }

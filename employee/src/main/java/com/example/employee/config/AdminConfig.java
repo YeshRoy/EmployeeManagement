@@ -50,10 +50,9 @@ public class AdminConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.authorizeRequests()
 		.antMatchers("/api/employee/login").permitAll()
-		.antMatchers("/api/employee/add","/api/employee/update/{id}",
-				"/api/timeSheet/getTimeSheet/{id}","/api/timeSheet/getAllTimeSheet/{id}","/api/employee/addAdmin").hasRole("ADMIN")
-		.antMatchers("/api/timeSheet/add","/api/timeSheet/update",
-				"/api/timeSheet/getTimeSheet/{id}").hasAnyRole("EMPLOYEE")
+		.antMatchers("/api/employee/add","/api/employee/update/{id}","/api/employee/addAdmin").hasRole("ADMIN")
+		.antMatchers("/api/timeSheet/add","/api/timeSheet/update","/api/timeSheet/getTimeSheet/{id}",
+				"/api/timeSheet/getAllTimeSheet/{id}","/api/timeSheet/getTimeSheet/{id}").hasAnyRole("EMPLOYEE","ADMIN")
 		.anyRequest().authenticated()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtReq,UsernamePasswordAuthenticationFilter.class);

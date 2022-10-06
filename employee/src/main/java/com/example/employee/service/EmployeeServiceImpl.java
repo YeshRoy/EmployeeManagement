@@ -50,17 +50,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public boolean deleteEmployee(long id) {
-		Employee employee = dao.findByEmployeeId(id);
-		if (employee != null) {
-			dao.delete(employee);
-			return true;
-		}
-		return false;
-		
-	}
-
-	@Override
 	public List<Employee> fetchEmployeeDetails() {
 		return (List<Employee>)dao.findAll();
 	}
@@ -68,6 +57,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee getEmployee(String email) {
 		return dao.findByEmail(email);
+	}
+
+	@Override
+	public Employee getEmpId(long id) {
+		return dao.findByEmployeeId(id);
 	}
 	
 	 

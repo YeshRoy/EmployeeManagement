@@ -11,6 +11,5 @@ public interface TimeSheetDao extends CrudRepository<TimeSheet, Long>{
 
 	public TimeSheet findBytimeSheetId(long id);
 	
-//	@Query("SELECT u FROM TimeSheet u WHERE u.employeeId = ?1")
 	public List<TimeSheet> findByEmployee_EmployeeId(long id);
 }

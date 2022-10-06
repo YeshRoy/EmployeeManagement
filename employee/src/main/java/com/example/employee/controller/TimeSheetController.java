@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +37,7 @@ public class TimeSheetController {
 		return ResponseEntity.ok(new ResponseMessage(true, HttpStatus.OK,"TimeSheet Is Not Added Successfully"));
 	}
 	
-	@PostMapping("/update/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<?> updateTimeSheet(@RequestBody TimeSheet sheet,@PathVariable long id) {
 		boolean isUpdated = service.updateTimeSheet(sheet, id);
 		if (isUpdated == true) {
